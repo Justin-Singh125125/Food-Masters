@@ -1,4 +1,4 @@
-.login{
+.section-login{
     display: grid;
     
     //column tracks
@@ -10,24 +10,10 @@
     
     grid-template-rows: 100vh;
 
-   &__test{
+ 
+
+
+   &__hero{
        grid-column: 4 / full-end;
-       background-size: cover;
-       background-color: black;
-       opacity: .5;
- 
-      
    }
-   &__test::after{
-       display: block;
-       content: "";
- 
-      
-   }
-
-&__img{
-    width: 100%;
-    height: 100vh;
-}
-
 }
