@@ -1,16 +1,21 @@
 import React from "react";
 
+//components
 import Hero from "../components/Hero";
+import LoginCard from "../components/Login-Card";
 
+//photos
 import HeroImage from "../assets/img/food.jpg";
+
 
 const test = props => {
     return (
         <div className="section-login">
 
-            <div className="section-login__hero">
-                <Hero img={HeroImage} />
-            </div>
+
+            <LoginCard />
+            <Hero img={HeroImage} />
+
 
         </div>
     )
