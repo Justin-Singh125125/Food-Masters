@@ -16,6 +16,8 @@ const LoginCard = props => {
                 <button className="login-card__button--login">Login</button>
             </div>
 
+            {/* <span className="login__redirect">Already a member? <a href="" className="login__link"></a></span> */}
+
         </div>
     )
 }
