@@ -8,7 +8,7 @@ const LoginCard = props => {
 
         <div className="login-card">
 
-            <h2 className="login-card__header">{props.showLogin ? "Login" : "Sign Up"}</h2>
+            {/* <h2 className="login-card__header">{props.showLogin ? "Login" : "Sign Up"}</h2> */}
             <form className="login-card__form">
                 <FormInput type="text" label="User Name" name="userName" placeholder="JohnDoe327" />
                 <FormInput type="password" label="Password" name="password" placeholder="super secret" />
