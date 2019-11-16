@@ -8,17 +8,38 @@ import LoginCard from "../components/Login-Card";
 import HeroImage from "../assets/img/food.jpg";
 
 
-const test = props => {
-    return (
-        <div className="section-login">
+
+class Login extends React.Component {
+
+    state = {
+        showLogin: true
+    }
+
+    //renders if it is either the login screen or the sign in screen
+    handleAuthState = () => {
+        if (this.state.showLogin) {
+            this.setState({ showLogin: false });
+        }
+        else {
+            this.setState({ showLogin: true });
+        }
+    }
+
+    render() {
+        return (
+            <div className="section-login">
 
 
-            <LoginCard />
-            <Hero img={HeroImage} />
+                <LoginCard
+                    showLogin={this.state.showLogin}
+                    handleAuthState={this.handleAuthState}
+                />
+                <Hero img={HeroImage} />
 
 
-        </div>
-    )
+            </div>
+        )
+    }
 }
 
-export default test;
+export default Login;
