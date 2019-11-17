@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 //components
 import FormInput from "./Form-Input";
 
+import Axios from "axios";
+
 class SignupCard extends Component {
 
 
@@ -13,13 +15,20 @@ class SignupCard extends Component {
         this.setState({ [e.target.name]: e.target.value });
     }
 
-    handleSignup = () => {
+    handleSignup = async () => {
 
         if (this.state.name && this.state.email && this.state.password && this.state.confirmPassword) {
-            console.log("name: " + this.state.name)
-            console.log("email: " + this.state.email)
-            console.log("password: " + this.state.password)
-            console.log("confirmPassword: " + this.state.confirmPassword)
+
+
+            var userObj = {
+                name: this.state.name,
+                email: this.state.email,
+                password: this.state.password
+            }
+
+            var newUser = await Axios.post("/api/user", userObj);
+
+            console.log(newUser);
         }
 
     }
