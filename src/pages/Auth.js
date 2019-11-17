@@ -3,16 +3,17 @@ import React from "react";
 //components
 import Hero from "../components/Hero";
 import LoginCard from "../components/Login-Card";
+import SignupCard from "../components/Signup-Card";
 
 //photos
 import HeroImage from "../assets/img/food.jpg";
 
 
 
-class Login extends React.Component {
+class Auth extends React.Component {
 
     state = {
-        showLogin: true
+        showLogin: true,
     }
 
     //renders if it is either the login screen or the sign in screen
@@ -29,11 +30,11 @@ class Login extends React.Component {
         return (
             <div className="section-login">
 
+                {this.state.showLogin ?
+                    <LoginCard handleAuthState={this.handleAuthState} />
+                    :
+                    <SignupCard handleAuthState={this.handleAuthState} />}
 
-                <LoginCard
-                    showLogin={this.state.showLogin}
-                    handleAuthState={this.handleAuthState}
-                />
                 <Hero img={HeroImage} />
 
 
@@ -42,4 +43,5 @@ class Login extends React.Component {
     }
 }
 
-export default Login;
+export default Auth;
+

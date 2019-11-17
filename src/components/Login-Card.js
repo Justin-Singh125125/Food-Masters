@@ -1,27 +1,45 @@
-import React from "react";
+import React, { Component } from 'react';
 
-//components
-import FormInput from "../components/Form-Input";
+import FormInput from "./Form-Input";
 
-const LoginCard = props => {
-    return (
+class LoginCard extends Component {
 
-        <div className="login-card">
+    state = {
 
-            {/* <h2 className="login-card__header">{props.showLogin ? "Login" : "Sign Up"}</h2> */}
-            <form className="login-card__form">
-                <FormInput type="text" label="User Name" name="userName" placeholder="JohnDoe327" />
-                <FormInput type="password" label="Password" name="password" placeholder="super secret" />
-            </form>
+    };
 
-            <div className="login-card__button">
-                <button className="login-card__button--login">Login</button>
+    handleInputChange = (e) => {
+
+        this.setState({ [e.target.name]: e.target.value });
+    }
+
+    handleLogin = () => {
+
+        if (this.state.email && this.state.password) {
+            console.log("email:" + this.state.email);
+            console.log("password: " + this.state.password);
+        }
+
+    }
+
+    render() {
+        return (
+            <div className="login-card">
+
+                <form className="login-card__form">
+                    <FormInput handleInputChange={this.handleInputChange} value={this.state.email} type="text" label="Email" name="email" placeholder="JohnDoe327@gmail.com" />
+                    <FormInput handleInputChange={this.handleInputChange} value={this.state.password} type="password" label="Password" name="password" placeholder="super secret" />
+                </form>
+
+                <div className="login-card__button">
+                    <button onClick={this.handleLogin} className="login-card__button--login">Login</button>
+                </div>
+
+                <span className="login-card__redirect">Not a member? <a onClick={this.props.handleAuthState} href="#" className="login-card__link">Sign up</a></span>
+
             </div>
-
-            <span className="login-card__redirect">Not a member? <a onClick={props.handleAuthState} href="#" className="login-card__link">Sign up</a></span>
-
-        </div>
-    )
+        );
+    }
 }
 
 export default LoginCard;
