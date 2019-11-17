@@ -18,6 +18,7 @@ app.use(cookieParser());
 
 //decode the jwt token
 app.use((req, res, next) => {
+
   //destructure the token
   const { token } = req.cookies;
 
