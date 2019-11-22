@@ -1,4 +1,4 @@
-const dotenv = require('dotenv');
+const dotenv = require("dotenv");
 dotenv.config();
 const express = require("express");
 const cookieParser = require("cookie-parser");
@@ -18,28 +18,26 @@ app.use(cookieParser());
 
 //decode the jwt token
 app.use((req, res, next) => {
-
   //destructure the token
   const { token } = req.cookies;
 
   //if the token exists
   if (token) {
-
     //get the verified userID from jwt
     const { _id } = jwt.verify(token, process.env.APP_SECRET);
 
-    //set that  userId on the request object 
+    //set that  userId on the request object
     req.user = _id;
   }
 
   //carry on the request after the middleware
   next();
-})
+});
 
 // Serve up static assets (usually on heroku)
-// if (process.env.NODE_ENV === "production") {
-app.use(express.static("client/build"));
-// }
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 // Add routes, both API and view
 app.use(routes);
 
@@ -47,6 +45,6 @@ app.use(routes);
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/food_masters");
 
 // Start the API server
-app.listen(PORT, function () {
+app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
