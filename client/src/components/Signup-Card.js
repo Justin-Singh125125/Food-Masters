@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 //components
 import FormInput from "./Form-Input";
 
-import Axios from "axios";
+import axios from "axios";
 
 class SignupCard extends Component {
 
@@ -26,7 +26,7 @@ class SignupCard extends Component {
                 password: this.state.password
             }
 
-            var newUser = await Axios.post("/api/user", userObj);
+            var newUser = await axios.post("/api/user", userObj);
 
             console.log(newUser);
         }

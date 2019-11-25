@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Axios from "axios";
+import axios from "axios";
 
 import FormInput from "./Form-Input";
 
@@ -27,7 +27,7 @@ class LoginCard extends Component {
                 password: this.state.password
             }
 
-            var loggedUser = await Axios.post("/api/user/login", userObj);
+            var loggedUser = await axios.post("/api/user/login", userObj);
 
             console.log(loggedUser);
 
