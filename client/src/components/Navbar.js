@@ -24,8 +24,16 @@ const test = props => {
 
         <div className="navbar__user__profile">
           <SvgIcon svgClass="navbar__user__profile--img" svgSelection="icon-user-solid-circle" />
+
         </div>
 
+
+        <div class="navbar__user__dropdown">
+
+          <a href="/" className="navbar__user__dropdown--link">
+            Login
+          </a>
+        </div>
       </div>
     </div>
   );

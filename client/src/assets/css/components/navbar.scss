@@ -66,9 +66,59 @@
   }
 
   &__user {
-
+    position: relative;
     grid-column: 8 / 9;
     text-align: center;
+
+    .navbar__user__dropdown{
+
+    
+      position: absolute;
+      box-shadow: $box-shadow-subtle;
+      // padding: 1rem 2rem;
+      background-color: white;
+      
+      width: 75%;
+
+    &--link{
+      font-size: 1.6rem;
+      color: black;
+      text-decoration: none;
+
+      transition: all .2s;
+
+    
+      width: 100%;
+      display: block;
+      padding: .3rem 1rem;
+
+
+
+      &:not(:last-child){
+        // border-bottom: 1px solid black;
+      }
+
+      &:hover{
+        background-color: #d3d6d9;;
+      }
+    }
+
+      &::before{
+        position: absolute;
+        top: -.5rem;
+        left: 1.4rem;
+        content: "";
+        width: 0; 
+        height: 0; 
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        
+        border-bottom: 5px solid white;
+      }
+      
+
+      
+    }
 
  
 
@@ -84,6 +134,7 @@
       align-items: center;
       transition: all .2s;
 
+      cursor: pointer;
 
       &:hover{
         background-color:#d3d6d9;
@@ -94,6 +145,8 @@
         height: 2rem;
   
         fill: #404142;
+
+    
 
       }
     
